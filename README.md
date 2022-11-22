@@ -10,7 +10,7 @@
 
 ## 📋 Category
 
-### <a href="">React</a> &nbsp;&nbsp; <a href="">Git</a>
+### <a href="https://github.com/SangYoonLee1231/ERROR_NOTE/blob/main/ERROR/react_error.md">React</a> &nbsp;&nbsp; <a href="https://github.com/SangYoonLee1231/ERROR_NOTE/blob/main/ERROR/git_error.md">Git</a>
 
 </div>
 
