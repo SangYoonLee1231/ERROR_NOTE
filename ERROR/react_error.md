@@ -12,6 +12,12 @@
 
 <br/><br/>
 
+#### (문제) [22.11.04] setState를 통해 상태값을 변경하니 원하는 값이 하나씩 밀린 채 변경되는 바람에, 상태값을 활용한 로직이 내 의도대로 동작하지 않는다.
+
+- <a href="https://sylagape1231.tistory.com/61">블로그 포스트로 작성</a>
+
+<br/><br/>
+
 #### [22.11.15] (Router를 활용한) React 프로젝트를 초기 세팅 완료하고 실행(npm start)해보았는데, 화면에 아무것도 나타나지 않는다.
 
 - <strong>원인</strong> : (모르겠음)
@@ -306,33 +312,33 @@ const BuyBar = ({ productData }) => {
 
 - <strong>해결</strong> : useEffect Hook을 활용. useEffect 내부에 set으로 시작하는 Modifier 함수를 작성하여, 첫 렌더링 시 그리고 price 값이 변할 시에만 리렌더링이 발생하도록 설정해준다.
 
-```js
-import React, { useState } from 'react';
+  ```js
+  import React, { useState } from 'react';
 
-const BuyBar = ({ productData }) => {
-  const [totalPrice, setTotalPrice] = useState(0);
+  const BuyBar = ({ productData }) => {
+    const [totalPrice, setTotalPrice] = useState(0);
 
-  const {
-    name,
-    information,
-    brand_name,
-    price,
-    discount_rate,
-  } = productData;
+    const {
+      name,
+      information,
+      brand_name,
+      price,
+      discount_rate,
+    } = productData;
 
-  useEffect(() => {
-    setTotalPrice(parseInt(price));  // price 값이 문자열 타입이라 정수형으로 변경 (이번 문제와는 무관한 부분)
-  }, [price]);
+    useEffect(() => {
+      setTotalPrice(parseInt(price));  // price 값이 문자열 타입이라 정수형으로 변경 (이번 문제와는 무관한 부분)
+    }, [price]);
 
-  if (totalPrice === 0) return null;  // 조건부 렌더링
+    if (totalPrice === 0) return null;  // 조건부 렌더링
 
-  ...
-
-  return (
     ...
-  );
-};
-```
+
+    return (
+      ...
+    );
+  };
+  ```
 
 <br/><br/>
 
