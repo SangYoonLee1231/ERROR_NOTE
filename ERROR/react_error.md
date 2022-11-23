@@ -62,7 +62,7 @@ const ListItem = ({ name }) => {
 export default ListItem;
 ```
 
-- <strong>원인</strong> : 자바스크립트에서 <code>map</code> 메소드는 배열을 반환하지만, React의 JSX에서 <code>map</code> 메소드는 컴포넌트를 반환하는 함수가 인자로 들어가 있으면, 컴포넌트를 여러 개 반환한다.
+- <strong>원인</strong> : 자바스크립트에서 <code>map</code> 메소드는 배열을 반환하지만, React의 JSX에서 <code>map</code> 메소드는 컴포넌트를 반환하는 함수가 인자로 들어가 있으면, 배열이 반환되지 않고 여러 개의 컴포넌트가 반환된다.
 
 - <strong>해결</strong> : 상수 데이터 배열에 <code>forEach</code> 메소드가 아닌 <code>map</code> 메소드를 사용해주면 된다.
 
@@ -265,6 +265,76 @@ const ProductDemonstration = productData => {
     ...
   }
   ```
+
+#### [22.00.00(날짜)] 컴포넌트 함수 안에 아래처럼 useState의 Modifier 함수 (set으로 시작하는 함수)를 주었다니 무한 렌더링이 발생
+
+```js
+import React, { useState } from 'react';
+
+const BuyBar = ({ productData }) => {
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const {
+    name,
+    information,
+    brand_name,
+    price,
+    discount_rate,
+  } = productData;
+
+  setTotalPrice(price);
+
+  ...
+
+  return (
+    ...
+  );
+};
+```
+
+- <strong>원인</strong> : state 값이 달라지면 해당 컴포넌트가 리렌더링 되는 특성으로 인해 아래의 순으로 무한 렌더링이 발생했다.
+
+  - totalPrice 값이 0으로 초기화
+
+  - setTotalPrice에 의해 totalPrice 값이 다른 값(price 값)으로 세팅 -> 리렌더링 발생 -> BuyBar 함수 재실행
+
+  - BuyBar 함수가 재실행 됨에 따라 price 값이 다시 0으로 세팅
+
+  - setTotalPrice에 의해 totalPrice 값이 다른 값(price 값)으로 세팅 -> 리렌더링 발생 -> BuyBar 함수 재실행
+
+  - 이런 식으로 로직이 무한 반복되어 무한 렌더링 발생
+
+- <strong>해결</strong> : useEffect Hook을 활용. useEffect 내부에 set으로 시작하는 Modifier 함수를 작성하여, 첫 렌더링 시 그리고 price 값이 변할 시에만 리렌더링이 발생하도록 설정해준다.
+
+```js
+import React, { useState } from 'react';
+
+const BuyBar = ({ productData }) => {
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const {
+    name,
+    information,
+    brand_name,
+    price,
+    discount_rate,
+  } = productData;
+
+  useEffect(() => {
+    setTotalPrice(parseInt(price));  // price 값이 문자열 타입이라 정수형으로 변경 (이번 문제와는 무관한 부분)
+  }, [price]);
+
+  if (totalPrice === 0) return null;  // 조건부 렌더링
+
+  ...
+
+  return (
+    ...
+  );
+};
+```
+
+<br/><br/>
 
 <!-- #### (문제) [22.00.00(날짜)]
 
