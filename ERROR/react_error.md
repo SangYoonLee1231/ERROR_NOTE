@@ -12,7 +12,7 @@
 
 <br/><br/>
 
-#### (문제) [22.11.04] setState를 통해 상태값을 변경하니 원하는 값이 하나씩 밀린 채 변경되는 바람에, 상태값을 활용한 로직이 내 의도대로 동작하지 않는다.
+#### [22.11.04] setState를 통해 상태값을 변경하니 원하는 값이 하나씩 밀린 채 변경되는 바람에, 상태값을 활용한 로직이 내 의도대로 동작하지 않는다.
 
 - <a href="https://sylagape1231.tistory.com/61">블로그 포스트로 작성</a>
 
@@ -374,7 +374,7 @@ export default ProductDemonstration;
 
 - <strong>원인</strong> : <code>reset.css</code>가 적용되어 기본 스타일이 초기화 되었다.
 
-- <strong>해결</strong> : 태그에 따로 스타일 속성을 부여해서 작업해주면 된다.
+- <strong>해결</strong> : 적용된 <code>reset.css</code>는 그대로 두고, 태그에 따로 스타일 속성을 부여해서 작업을 해주면 된다.
 
 <br/><br/>
 
