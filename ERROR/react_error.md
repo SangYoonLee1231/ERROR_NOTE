@@ -346,7 +346,7 @@ const BuyBar = ({ productData }) => {
 
 <br/><br/>
 
-#### (문제) [22.11.23] React 프로젝트의 특정 컴포넌트에서 <code>\<h3></code> 태그가 인식이 되지 않는다.
+#### [22.11.23] React 프로젝트의 특정 컴포넌트에서 <code>\<h3></code> 태그가 인식이 되지 않는다.
 
 ```js
 import React from "react";
