@@ -249,7 +249,7 @@ const ProductDemonstration = productData => {
 }
 ```
 
-- <strong>원인</strong> : 객체 구조 분해 할당은 매개 변수에도 해주어야 한다.
+- <strong>원인</strong> : 받아온 productData 객체 데이터의 구조를 제대로 파악하지 못해, 자바스크립트에서 해당 경로에 있는 데이터를 읽지 못한 상태였다.
 
 - <strong>해결</strong> : 매개 변수에도 객체 구조 분해 할당을 적용한다.
 
@@ -272,7 +272,11 @@ const ProductDemonstration = productData => {
   }
   ```
 
-#### [22.00.00(날짜)] 컴포넌트 함수 안에 아래처럼 useState의 Modifier 함수 (set으로 시작하는 함수)를 주었다니 무한 렌더링이 발생
+  - <strong>받아온 객체 데이터의 구조가 어떻게 되어있는지 (console.log로 찍어서) 꼭 확인해본 다음</strong> 원하는 데이터에 어떻게 접근할 지 고민해보자.
+
+<br/><br/>
+
+#### [22.11.23] 컴포넌트 함수 안에 아래처럼 useState의 Modifier 함수 (set으로 시작하는 함수)를 주었다니 무한 렌더링이 발생
 
 ```js
 import React, { useState } from 'react';
@@ -339,6 +343,38 @@ const BuyBar = ({ productData }) => {
     );
   };
   ```
+
+<br/><br/>
+
+#### (문제) [22.11.23] React 프로젝트의 특정 컴포넌트에서 <code>\<h3></code> 태그가 인식이 되지 않는다.
+
+```js
+import React from "react";
+
+const ProductDemonstration = ({ productData }) => {
+  const { information, thumbnail } = productData;
+
+  return (
+    <section className="product-demonstration">
+      <div className="product-description">
+        <h2>제품 설명</h2>
+        <p>{information}</p>
+      </div>
+      <div className="product-review">
+        <p>좋네요</p>
+      </div>
+    </section>
+  );
+};
+
+export default ProductDemonstration;
+```
+
+<img src="img/react/221123_h3.png">
+
+- <strong>원인</strong> : <code>reset.css</code>가 적용되어 기본 스타일이 초기화 되었다.
+
+- <strong>해결</strong> : 태그에 따로 스타일 속성을 부여해서 작업해주면 된다.
 
 <br/><br/>
 
