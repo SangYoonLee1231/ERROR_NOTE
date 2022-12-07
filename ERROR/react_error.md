@@ -22,6 +22,8 @@
 
 - <strong>원인</strong> : (모르겠음)
 
+<br/>
+
 - <strong>해결</strong> : Router 컴포넌트의 코드를 파일 내에서 다시 작성해본다.
 
 <br/><br/>
@@ -70,6 +72,8 @@ export default ListItem;
 
 - <strong>원인</strong> : 자바스크립트에서 <code>map</code> 메소드는 배열을 반환하지만, React의 JSX에서 <code>map</code> 메소드는 컴포넌트를 반환하는 함수가 인자로 들어가 있으면, 배열이 반환되지 않고 여러 개의 컴포넌트가 반환된다.
 
+<br/>
+
 - <strong>해결</strong> : 상수 데이터 배열에 <code>forEach</code> 메소드가 아닌 <code>map</code> 메소드를 사용해주면 된다.
 
   ```js
@@ -103,6 +107,8 @@ export default ListItem;
   - 0이 찍힌 이유는 useState 문제인 줄 알았는데, 아니었던 것 같다. 정확한 원인을 파악하지 못한 채 문제 해결
 
   - 다음 부터는 문제가 발생하면 해결하기 전에 미리 문제 상황을 잘 기록해두자..
+
+<br/>
 
 - <strong>해결</strong> : 선행되는 데이터는 상단에 미리 작성하기, useEffect의 의존성 배열에 <code>auto</code> 함수 삽입
 
@@ -189,6 +195,8 @@ export default ProductDetail;
 - <strong>원인</strong> : useEffect는 렌더링이 모두 끝난 후 내부 Side Effect가 실행된다.  
   그 이유는 첫 번째로 '매 렌더링 마다 Side Effect가 실행되는 비효율성을 막기 위함'이고, 두 번째로 'Side Effect가 오래 걸려 렌더링이 블로킹 되는 것을 방지하기 위함'이다.
 
+<br/>
+
 - <strong>해결</strong> : 조건부 렌더링을 이용한다.
 
   ```js
@@ -250,6 +258,8 @@ const ProductDemonstration = productData => {
 ```
 
 - <strong>원인</strong> : 받아온 productData 객체 데이터의 구조를 제대로 파악하지 못해, 자바스크립트에서 해당 경로에 있는 데이터를 읽지 못한 상태였다.
+
+<br/>
 
 - <strong>해결</strong> : 매개 변수에도 객체 구조 분해 할당을 적용한다.
 
@@ -314,6 +324,8 @@ const BuyBar = ({ productData }) => {
 
   - 이런 식으로 로직이 무한 반복되어 무한 렌더링 발생
 
+<br/>
+
 - <strong>해결</strong> : useEffect Hook을 활용. useEffect 내부에 set으로 시작하는 Modifier 함수를 작성하여, 첫 렌더링 시 그리고 price 값이 변할 시에만 리렌더링이 발생하도록 설정해준다.
 
   ```js
@@ -375,6 +387,84 @@ export default ProductDemonstration;
 - <strong>원인</strong> : <code>reset.css</code>가 적용되어 기본 스타일이 초기화 되었다.
 
 - <strong>해결</strong> : 적용된 <code>reset.css</code>는 그대로 두고, 태그에 따로 스타일 속성을 부여해서 작업을 해주면 된다.
+
+<br/><br/>
+
+#### [22.11.23] 백에서 받아온 데이터를 구조 분해 할당할 때 값이 읽혀지지 않는 문제 - <code>Uncaught TypeError: Cannot read properties of undefined (reading '0')</code>
+
+```js
+const ReservationPage = () => {
+  const [lectureData, setLectureData] = useState({});
+
+  // 백에서 상품 디테일 데이터 수신
+  useEffect(() => {
+    fetch(`/data/reservationData.json`, {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(data => {
+        // console.log(data);
+        setLectureData(data);
+      });
+  }, []);
+
+  if (lectureData === {}) {
+    return null;
+  }
+
+  // 백에서 받은 데이터 객체 구조 분해 할당
+  // console.log(lectureData);
+  const data = lectureData?.data;
+  // console.log(data);
+  const { lectureId, lectureTitle, lectureText, lecturerName, price, images } =
+    data[0];
+  // console.log(lectureData);
+
+  ...
+}
+```
+
+- <strong>원인</strong> : 정확한 이유는 모르겠으나, 보통 백에서 받아온 데이터를 구조 분해 할당할 때, 아래처럼 배열의 index 값으로 접근하면 값이 읽혀지지 않는 문제가 생긴다고 한다. (<code>undefined</code>)
+
+  ```js
+  const { lectureId, lectureTitle, lectureText, lecturerName, price, images } =
+    data[0];
+  ```
+
+<br/>
+
+- <strong>해결</strong> : 백에서 받아온 데이터를 구조 분해 할당 시 index로 접근하지 않도록 한다. 만일 꼭 index로 접근해야만 하는 상황이라면 <strong>setState의 Modifier 함수 인자 내부에서 (index로) 접근해주면 된다.</strong>
+
+  ```js
+  const ReservationPage = () => {
+    const [lectureData, setLectureData] = useState([]);
+    const [reservation, setReservation] = useState('');
+    // const lectureId = 2;
+    // const { lectureId } = useParams();
+
+    // 백에서 상품 디테일 데이터 수신
+    useEffect(() => {
+      // fetch(`http://10.58.52.141:3000/lectures/${lectureId}/reservations`, {
+      //   method: 'GET',
+      // })
+      fetch(`/data/reservationData.json`, {
+        method: 'GET',
+      })
+        .then(response => response.json())
+        .then(data => {
+          // console.log(data);
+          setLectureData(data.data[0]);
+        });
+    }, []);
+
+    // 백에서 받은 데이터 객체 구조 분해 할당
+    const { lectureId, lectureTitle, lectureText, lecturerName, price, images } =
+      lectureData;
+    console.log(lectureData);
+
+    ...
+  }
+  ```
 
 <br/><br/>
 
