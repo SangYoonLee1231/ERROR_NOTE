@@ -413,12 +413,9 @@ const ReservationPage = () => {
   }
 
   // 백에서 받은 데이터 객체 구조 분해 할당
-  // console.log(lectureData);
-  const data = lectureData?.data;
-  // console.log(data);
+  const data = lectureData.data;
   const { lectureId, lectureTitle, lectureText, lecturerName, price, images } =
     data[0];
-  // console.log(lectureData);
 
   ...
 }
@@ -444,10 +441,7 @@ const ReservationPage = () => {
 
     // 백에서 상품 디테일 데이터 수신
     useEffect(() => {
-      // fetch(`http://10.58.52.141:3000/lectures/${lectureId}/reservations`, {
-      //   method: 'GET',
-      // })
-      fetch(`/data/reservationData.json`, {
+      fetch(`http://10.58.52.141:3000/lectures/${lectureId}/reservations`, {
         method: 'GET',
       })
         .then(response => response.json())
@@ -465,6 +459,54 @@ const ReservationPage = () => {
     ...
   }
   ```
+
+- 해당 문제는 여러 번 나를 괴롭혔기에, <a href="https://sylagape1231.tistory.com/64">블로그 포스트</a>로 따로 작성을 해두었다.
+
+<br/><br/>
+
+#### (문제) [22.12.09(날짜)] 토스 페이먼츠 api를 활용한 결제 기능 구현 중 axios를 읽지 못하는 문제
+
+```js
+useEffect(() => {
+  let axios = require("axios").default;
+
+  let options = {
+    method: "POST",
+    url: "https://api.tosspayments.com/v1/payments/confirm",
+    headers: {
+      Authorization:
+        "Basic dGVzdF9za183WFpZa0tMNE1yak9uWjdaTVIxODB6SndsRVdSOg==",
+      "Content-Type": "application/json",
+    },
+    data: {
+      paymentKey: paymentKey,
+      amount: amount,
+      orderId: order,
+    },
+  };
+
+  axios
+    .request(options)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+});
+```
+
+- 위의 코드는 결제 승인 요청을 토스 페이먼트 서버에 요청하는 코드이다.
+
+- 그러나 <code>axios</code>가 불러와지질 않아 승인 요청이 정상적으로 이루어지지 않았다.
+
+<br/>
+
+- <strong>원인</strong> : <strong>버전이 맞지 않아서</strong> 발생한 문제였다.. (이틀동안 고생했는데 허무..)
+
+<br/>
+
+- <strong>해결</strong> : <code>axios</code>의 버전을 1.0.0으로 다운 그레이드한 후 다시 진행해보니 정상적으로 작동했다.
 
 <br/><br/>
 
