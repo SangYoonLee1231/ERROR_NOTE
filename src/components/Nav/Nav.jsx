@@ -11,7 +11,6 @@ export default function Nav() {
       <div className="nav__title">
         <span className="nav__title">ERROR NOTE</span>
       </div>
-      <div />
     </header>
   );
 }
