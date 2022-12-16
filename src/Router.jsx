@@ -2,9 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Main from './pages/Main/Main';
-import ReactPage from './pages/ContentPages/React/ReactPage';
-import GitPage from './pages/ContentPages/Git/GitPage';
-import EtcPage from './pages/ContentPages/Etc/EtcPage';
+import Content from './pages/Content/Content';
 
 export default function Router() {
   return (
@@ -12,9 +10,7 @@ export default function Router() {
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/react/:id" element={<ReactPage />} />
-        <Route path="/git/:id" element={<GitPage />} />
-        <Route path="/etc/:id" element={<EtcPage />} />
+        <Route path="/content/:category" element={<Content />} />
       </Routes>
     </BrowserRouter>
   );
