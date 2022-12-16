@@ -1,2 +1,3 @@
 .nav {
+  @include flex(row, space-evenly, center);
 }
