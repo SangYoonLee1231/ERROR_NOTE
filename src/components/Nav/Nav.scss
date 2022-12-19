@@ -1,3 +1,30 @@
+@import './../../styles/common.scss';
+@import './../../styles/reset.scss';
+
 .nav {
-  @include flex(row, space-evenly, center);
+  @include flex(row, space-between, center);
+  height: 7vh;
+  border-bottom: 0.5px solid #dbdbdb;
+  padding: 0px 30px;
+
+  &-child {
+    width: 33%;
+  }
+
+  &__links {
+    @include flex(row, flex-start, center);
+    font-size: larger;
+    color: #2c3d4f;
+  }
+
+  &__title {
+    @include flex(row, center, center);
+    font-size: x-large;
+    font-weight: 800;
+    color: #2c3d4f;
+  }
+
+  &__search-icon {
+    @include flex(row, flex-end, center);
+  }
 }
