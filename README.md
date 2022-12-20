@@ -18,7 +18,7 @@
 
 # 📋 Category
 
-## <a href="https://github.com/SangYoonLee1231/ERROR_NOTE/blob/main/ERROR/react_error.md">React</a> &nbsp;&nbsp; <a href="https://github.com/SangYoonLee1231/ERROR_NOTE/blob/main/ERROR/git_error.md">Git</a>
+## <a href="https://github.com/SangYoonLee1231/ERROR_NOTE/blob/main/public/data/ERROR/React-Note/react_error.md">React</a> &nbsp;&nbsp; <a href="https://github.com/SangYoonLee1231/ERROR_NOTE/blob/main/public/data/ERROR/Git-Note/git_error.md">Git</a>
 
 </div>
 

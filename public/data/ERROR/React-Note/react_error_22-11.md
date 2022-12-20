@@ -1,24 +1,24 @@
 # ERROR NOTE - React
 
-#### [22.11.04] DOM에 직접 접근하여 classList 메소드를 통해 클래스를 추가하고 제거했더니 정상적으로 동작하지 않는다.
+### [22.11.04] DOM에 직접 접근하여 classList 메소드를 통해 클래스를 추가하고 제거했더니 정상적으로 동작하지 않는다.
 
 - <a href="https://sylagape1231.tistory.com/59">블로그 포스트로 작성</a>
 
 <br/><br/>
 
-#### [22.11.04] React에서 특정 요소에 이벤트를 연결하고, event 객체를 매개변수로 받아 활용하는 코드를 작성했는데, <code>event is deprecated</code> 에러가 발생했다.
+### [22.11.04] React에서 특정 요소에 이벤트를 연결하고, event 객체를 매개변수로 받아 활용하는 코드를 작성했는데, <code>event is deprecated</code> 에러가 발생했다.
 
 - <a href="https://sylagape1231.tistory.com/60">블로그 포스트로 작성</a>
 
 <br/><br/>
 
-#### [22.11.04] setState를 통해 상태값을 변경하니 원하는 값이 하나씩 밀린 채 변경되는 바람에, 상태값을 활용한 로직이 내 의도대로 동작하지 않는다.
+### [22.11.04] setState를 통해 상태값을 변경하니 원하는 값이 하나씩 밀린 채 변경되는 바람에, 상태값을 활용한 로직이 내 의도대로 동작하지 않는다.
 
 - <a href="https://sylagape1231.tistory.com/61">블로그 포스트로 작성</a>
 
 <br/><br/>
 
-#### [22.11.15] (Router를 활용한) React 프로젝트를 초기 세팅 완료하고 실행(npm start)해보았는데, 화면에 아무것도 나타나지 않는다.
+### [22.11.15] (Router를 활용한) React 프로젝트를 초기 세팅 완료하고 실행(npm start)해보았는데, 화면에 아무것도 나타나지 않는다.
 
 - <strong>원인</strong> : (모르겠음)
 
@@ -28,19 +28,19 @@
 
 <br/><br/>
 
-#### [22.11.15] 아래와 같이 코드를 작성했는데 화면에 아무것도 출력되지 않는다. (상위 컴포넌트는 생략)
+### [22.11.15] 아래와 같이 코드를 작성했는데 화면에 아무것도 출력되지 않는다. (상위 컴포넌트는 생략)
 
 ```js
 // MenuList.js
 const MENU_LIST_DATAS = [
-  "눈",
-  "간",
-  "관절 / 뼈",
-  "장",
-  "다이어트",
-  "위 /소화",
-  "피부",
-  "피로 / 활력",
+  '눈',
+  '간',
+  '관절 / 뼈',
+  '장',
+  '다이어트',
+  '위 /소화',
+  '피부',
+  '피로 / 활력',
 ];
 
 const MenuList = () => {
@@ -48,7 +48,7 @@ const MenuList = () => {
     <>
       ...
       <div className="">
-        {MENU_LIST_DATAS.forEach((data) => (
+        {MENU_LIST_DATAS.forEach(data => (
           <ListItem name={data} />
         ))}
       </div>
@@ -61,7 +61,7 @@ export default MenuList;
 
 ```js
 // Listitem.js
-import React from "react";
+import React from 'react';
 
 const ListItem = ({ name }) => {
   return <p>{name}</p>;
@@ -100,7 +100,7 @@ export default ListItem;
 
 <br/>
 
-#### [22.11.18] 슬라이더를 리엑트로 구현하였는데, 처음에 시간 간격에 따라 페이지가 이동할 때 화면에 사진이 사라져버렸다.
+### [22.11.18] 슬라이더를 리엑트로 구현하였는데, 처음에 시간 간격에 따라 페이지가 이동할 때 화면에 사진이 사라져버렸다.
 
 - <strong>원인</strong> : <code>slideLength</code> 값 ( === <code>sliderData.length</code>)에 정상적으로 값이 나오지 않고 0이 찍힌다.
 
@@ -158,14 +158,14 @@ export default ListItem;
 
 <br/><br/>
 
-#### [22.11.22] useEffect를 통해 백엔드에서 데이터를 받아 화면에 출력하려 했으나 (useEffect의 렌더링 특성으로 인해) 오류가 발생했다.
+### [22.11.22] useEffect를 통해 백엔드에서 데이터를 받아 화면에 출력하려 했으나 (useEffect의 렌더링 특성으로 인해) 오류가 발생했다.
 
 ```js
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import ProductDemonstration from "./ProductDemonstration/ProductDemonstration";
-import BuyBar from "./BuyBar/BuyBar";
-import "./ProductDetail.scss";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import ProductDemonstration from './ProductDemonstration/ProductDemonstration';
+import BuyBar from './BuyBar/BuyBar';
+import './ProductDetail.scss';
 
 const ProductDetail = () => {
   const [productData, setProductData] = useState([]);
@@ -173,10 +173,10 @@ const ProductDetail = () => {
 
   useEffect(() => {
     fetch(`http://10.58.52.143:3000/products?id=${id}`, {
-      method: "GET",
+      method: 'GET',
     })
-      .then((result) => result.json())
-      .then((data) => setProductData(data.products[0]));
+      .then(result => result.json())
+      .then(data => setProductData(data.products[0]));
   }, [id]);
 
   console.log(productData);
@@ -200,11 +200,11 @@ export default ProductDetail;
 - <strong>해결</strong> : 조건부 렌더링을 이용한다.
 
   ```js
-  import React, { useState, useEffect } from "react";
-  import { useParams } from "react-router-dom";
-  import ProductDemonstration from "./ProductDemonstration/ProductDemonstration";
-  import BuyBar from "./BuyBar/BuyBar";
-  import "./ProductDetail.scss";
+  import React, { useState, useEffect } from 'react';
+  import { useParams } from 'react-router-dom';
+  import ProductDemonstration from './ProductDemonstration/ProductDemonstration';
+  import BuyBar from './BuyBar/BuyBar';
+  import './ProductDetail.scss';
 
   const ProductDetail = () => {
     const [productData, setProductData] = useState([]);
@@ -212,10 +212,10 @@ export default ProductDetail;
 
     useEffect(() => {
       fetch(`http://10.58.52.143:3000/products?id=${id}`, {
-        method: "GET",
+        method: 'GET',
       })
-        .then((result) => result.json())
-        .then((data) => setProductData(data.products[0]));
+        .then(result => result.json())
+        .then(data => setProductData(data.products[0]));
     }, [id]);
 
     console.log(productData);
@@ -236,7 +236,7 @@ export default ProductDetail;
 
 <br/><br/>
 
-#### [22.11.22] (위와 동일한 문제) 백엔드에서 데이터를 받아 화면에 출력하려 했으나 아무것도 표시되지 않는다. 해당 데이터는 <code>undefined</code>로 출력된다.
+### [22.11.22] (위와 동일한 문제) 백엔드에서 데이터를 받아 화면에 출력하려 했으나 아무것도 표시되지 않는다. 해당 데이터는 <code>undefined</code>로 출력된다.
 
 ```js
 const ProductDemonstration = productData => {
@@ -286,7 +286,7 @@ const ProductDemonstration = productData => {
 
 <br/><br/>
 
-#### [22.11.23] 컴포넌트 함수 안에 아래처럼 useState의 Modifier 함수 (set으로 시작하는 함수)를 주었다니 무한 렌더링이 발생
+### [22.11.23] 컴포넌트 함수 안에 아래처럼 useState의 Modifier 함수 (set으로 시작하는 함수)를 주었다니 무한 렌더링이 발생
 
 ```js
 import React, { useState } from 'react';
@@ -358,10 +358,10 @@ const BuyBar = ({ productData }) => {
 
 <br/><br/>
 
-#### [22.11.23] React 프로젝트의 특정 컴포넌트에서 <code>\<h3></code> 태그가 인식이 되지 않는다.
+### [22.11.23] React 프로젝트의 특정 컴포넌트에서 <code>\<h3></code> 태그가 인식이 되지 않는다.
 
 ```js
-import React from "react";
+import React from 'react';
 
 const ProductDemonstration = ({ productData }) => {
   const { information, thumbnail } = productData;
@@ -390,7 +390,7 @@ export default ProductDemonstration;
 
 <br/><br/>
 
-#### [22.11.23] 백에서 받아온 데이터를 구조 분해 할당할 때 값이 읽혀지지 않는 문제 - <code>Uncaught TypeError: Cannot read properties of undefined (reading '0')</code>
+### [22.11.23] 백에서 받아온 데이터를 구조 분해 할당할 때 값이 읽혀지지 않는 문제 - <code>Uncaught TypeError: Cannot read properties of undefined (reading '0')</code>
 
 ```js
 const ReservationPage = () => {
@@ -464,19 +464,19 @@ const ReservationPage = () => {
 
 <br/><br/>
 
-#### (문제) [22.12.09(날짜)] 토스 페이먼츠 api를 활용한 결제 기능 구현 중 axios를 읽지 못하는 문제
+### (문제) [22.12.09(날짜)] 토스 페이먼츠 api를 활용한 결제 기능 구현 중 axios를 읽지 못하는 문제
 
 ```js
 useEffect(() => {
-  let axios = require("axios").default;
+  let axios = require('axios').default;
 
   let options = {
-    method: "POST",
-    url: "https://api.tosspayments.com/v1/payments/confirm",
+    method: 'POST',
+    url: 'https://api.tosspayments.com/v1/payments/confirm',
     headers: {
       Authorization:
-        "Basic dGVzdF9za183WFpZa0tMNE1yak9uWjdaTVIxODB6SndsRVdSOg==",
-      "Content-Type": "application/json",
+        'Basic dGVzdF9za183WFpZa0tMNE1yak9uWjdaTVIxODB6SndsRVdSOg==',
+      'Content-Type': 'application/json',
     },
     data: {
       paymentKey: paymentKey,
