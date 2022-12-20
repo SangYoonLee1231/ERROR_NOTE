@@ -4,17 +4,32 @@ import './Aside.scss';
 
 export default function Aside() {
   const [reactHidden, setReactHidden] = useState(true);
+  const [nodejsHidden, setNodejsHidden] = useState(true);
+  const [vanilajsHidden, setVanilajsHidden] = useState(true);
   const [gitHidden, setGitHidden] = useState(true);
   const [etcHidden, setEtcHidden] = useState(true);
-  // useEffect(() => {
-
-  // }, [reactHidden])
 
   const toggleReactCategory = () => {
     if (reactHidden === true) {
       setReactHidden(false);
     } else {
       setReactHidden(true);
+    }
+  };
+
+  const toggleNodejsCategory = () => {
+    if (nodejsHidden === true) {
+      setNodejsHidden(false);
+    } else {
+      setNodejsHidden(true);
+    }
+  };
+
+  const toggleVanilajsCategory = () => {
+    if (vanilajsHidden === true) {
+      setVanilajsHidden(false);
+    } else {
+      setVanilajsHidden(true);
     }
   };
 
@@ -38,7 +53,7 @@ export default function Aside() {
     <aside className="side-bar">
       <div className="side-bar__category">
         <span className="category-title" onClick={toggleReactCategory}>
-          React
+          React JS
         </span>
         <ul
           className={`side-bar__category__list ${
@@ -50,6 +65,40 @@ export default function Aside() {
           </li>
           <li>
             <Link to="/content/react-2022-12">2022년 12월</Link>
+          </li>
+        </ul>
+      </div>
+      <div className="side-bar__category">
+        <span className="category-title" onClick={toggleNodejsCategory}>
+          Node JS
+        </span>
+        <ul
+          className={`side-bar__category__list ${
+            nodejsHidden ? 'invisible' : ''
+          }`}
+        >
+          <li>
+            <Link to="/content/nodejs-2022-11">2022년 11월</Link>
+          </li>
+          <li>
+            <Link to="/content/nodejs-2022-12">2022년 12월</Link>
+          </li>
+        </ul>
+      </div>
+      <div className="side-bar__category">
+        <span className="category-title" onClick={toggleVanilajsCategory}>
+          Vanila JS
+        </span>
+        <ul
+          className={`side-bar__category__list ${
+            vanilajsHidden ? 'invisible' : ''
+          }`}
+        >
+          <li>
+            <Link to="/content/vanilajs-2022-11">2022년 11월</Link>
+          </li>
+          <li>
+            <Link to="/content/vanilajs-2022-12">2022년 12월</Link>
           </li>
         </ul>
       </div>
