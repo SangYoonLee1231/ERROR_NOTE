@@ -1,2 +1,38 @@
 @import './../../styles/common.scss';
 @import './../../styles/reset.scss';
+
+.invisible {
+  display: none;
+}
+
+.side-bar {
+  position: fixed;
+  top: 5rem;
+  width: 20rem;
+  height: 100vh;
+  border-right: 1px solid #dbdbdb;
+  padding: 40px;
+
+  &__category {
+    padding: 20px 0px;
+
+    .category-title {
+      font-size: x-large;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    &__list {
+      li {
+        margin: 20px 15px;
+        font-size: large;
+      }
+      a {
+        color: #2c3d4f;
+      }
+      a:hover {
+        color: #f3cc00;
+      }
+    }
+  }
+}
