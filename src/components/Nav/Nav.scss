@@ -3,10 +3,13 @@
 
 .nav {
   @include flex(row, space-between, center);
+  position: fixed;
+  top: 0px;
+  left: 0px;
   height: 5rem;
+  width: 100%;
   border-bottom: 0.5px solid #dbdbdb;
   padding: 0px 30px;
-  // position: fixed;
 
   &-child {
     width: 33%;
