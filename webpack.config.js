@@ -46,10 +46,23 @@ module.exports = (_env, argv) => {
             },
           ],
         },
+        {
+          test: /\.mdx?$/,
+          use: [
+            {
+              loader: '@mdx-js/loader',
+              /** @type {import('@mdx-js/loader').Options} */
+              options: {},
+            },
+          ],
+        },
       ],
     },
     resolve: {
       extensions: ['.js', '.jsx'],
+    },
+    devServer: {
+      historyApiFallback: true,
     },
     plugins: [
       new MiniCssExtractPlugin({

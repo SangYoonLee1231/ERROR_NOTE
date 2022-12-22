@@ -1,0 +1,9 @@
+@import './../../styles/common';
+@import './../../styles/reset';
+
+.main {
+  @include flex(column, center, flex-start);
+  position: relative;
+  top: 10rem;
+  left: 30rem;
+}
