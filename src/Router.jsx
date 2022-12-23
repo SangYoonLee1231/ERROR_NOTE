@@ -7,7 +7,7 @@ import Content from './pages/Content/Content';
 
 export default function Router() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Nav />
       <Aside />
       <Routes>
