@@ -18,7 +18,7 @@
 
 <div align="center">
 
-<a href=""><h2>👉 ERROR NOTE 바로 가기 👈</h2></a>
+<a href="https://sangyoonlee1231.github.io/ERROR_NOTE/"><h2>👉 ERROR NOTE 바로 가기 👈</h2></a>
 
 </div>
 
