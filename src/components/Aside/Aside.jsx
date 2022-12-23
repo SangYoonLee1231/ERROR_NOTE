@@ -61,10 +61,10 @@ export default function Aside() {
           }`}
         >
           <li>
-            <Link to="/ERROR_NOTE/content/react-2022-11">2022년 11월</Link>
+            <Link to="/content/react-2022-11">2022년 11월</Link>
           </li>
           <li>
-            <Link to="/ERROR_NOTE/content/react-2022-12">2022년 12월</Link>
+            <Link to="/content/react-2022-12">2022년 12월</Link>
           </li>
         </ul>
       </div>
@@ -78,10 +78,10 @@ export default function Aside() {
           }`}
         >
           <li>
-            <Link to="/ERROR_NOTE/content/nodejs-2022-11">2022년 11월</Link>
+            <Link to="/content/nodejs-2022-11">2022년 11월</Link>
           </li>
           <li>
-            <Link to="/ERROR_NOTE/content/nodejs-2022-12">2022년 12월</Link>
+            <Link to="/content/nodejs-2022-12">2022년 12월</Link>
           </li>
         </ul>
       </div>
@@ -95,10 +95,10 @@ export default function Aside() {
           }`}
         >
           <li>
-            <Link to="/ERROR_NOTE/content/vanilajs-2022-11">2022년 11월</Link>
+            <Link to="/content/vanilajs-2022-11">2022년 11월</Link>
           </li>
           <li>
-            <Link to="/ERROR_NOTE/content/vanilajs-2022-12">2022년 12월</Link>
+            <Link to="/content/vanilajs-2022-12">2022년 12월</Link>
           </li>
         </ul>
       </div>
@@ -110,10 +110,10 @@ export default function Aside() {
           className={`side-bar__category__list ${gitHidden ? 'invisible' : ''}`}
         >
           <li>
-            <Link to="/ERROR_NOTE/content/git-2022-11">2022년 11월</Link>
+            <Link to="/content/git-2022-11">2022년 11월</Link>
           </li>
           <li>
-            <Link to="/ERROR_NOTE/content/git-2022-12">2022년 12월</Link>
+            <Link to="/content/git-2022-12">2022년 12월</Link>
           </li>
         </ul>
       </div>
@@ -125,10 +125,10 @@ export default function Aside() {
           className={`side-bar__category__list ${etcHidden ? 'invisible' : ''}`}
         >
           <li>
-            <Link to="/ERROR_NOTE/content/etc-2022-11">2022년 11월</Link>
+            <Link to="/content/etc-2022-11">2022년 11월</Link>
           </li>
           <li>
-            <Link to="/ERROR_NOTE/content/etc-2022-12">2022년 12월</Link>
+            <Link to="/content/etc-2022-12">2022년 12월</Link>
           </li>
         </ul>
       </div>

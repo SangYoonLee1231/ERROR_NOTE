@@ -46,8 +46,7 @@ useEffect(() => {
 - <strong>해결</strong> : <code>axios</code>의 버전을 1.0.0으로 다운 그레이드한
   후 다시 진행해보니 정상적으로 작동했다.
 
-<br />
-<br />
+<br /><br />
 
 #### [22.12.22] React Router를 새로고침 시 발생하는 <code>cannot GET /URL</code> 에러
 
@@ -56,3 +55,11 @@ useEffect(() => {
 - <strong>해결</strong> :
 
 <br/><br/>
+
+<!-- #### [22.12.23] React-Router를 적용한 React 앱을 Github Page로 배포할 때
+
+- <strong>원인</strong> :
+
+- <strong>해결</strong> :
+
+<br/><br/> -->
