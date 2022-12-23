@@ -22,8 +22,8 @@ export default function Content() {
   const [categoryName, year, month] = categoryTitleArray;
 
   // for (let i = 0; i < errorData.length; i++) {
-  //   const { id, date, problem_title, link } = errorData[i];
-  //   console.log(id, date, problem_title, link);
+  //   const { id, date, problemTitle, link } = errorData[i];
+  //   console.log(id, date, problemTitle, link);
   // }
 
   if (errorData === []) return null;
@@ -36,13 +36,13 @@ export default function Content() {
       <div className="content-list">
         <ul>
           {errorData.map(item => {
-            const { id, date, problem_title, link } = item;
+            const { id, date, problemTitle, link } = item;
             return (
               <li>
                 <h2>
                   {id}.{date}
                 </h2>
-                <a href={link}>{problem_title}</a>
+                <a href={link}>{problemTitle}</a>
               </li>
             );
           })}

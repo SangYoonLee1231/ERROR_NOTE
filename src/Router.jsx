@@ -11,8 +11,8 @@ export default function Router() {
       <Nav />
       <Aside />
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/content/:category" element={<Content />} />
+        <Route path="/ERROR_NOTE/" element={<Main />} />
+        <Route path="/ERROR_NOTE/content/:category" element={<Content />} />
       </Routes>
     </BrowserRouter>
   );
