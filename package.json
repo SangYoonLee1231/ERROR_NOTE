@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/SangYoonLee1231/ERROR_NOTE/issues"
   },
-  "homepage": "https://sangyoonlee1231.github.io//ERROR_NOTE",
+  "homepage": "https://sangyoonlee1231.github.io/ERROR_NOTE/",
   "devDependencies": {
     "@babel/core": "^7.20.5",
     "@babel/preset-env": "^7.20.2",
