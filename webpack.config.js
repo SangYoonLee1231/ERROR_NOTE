@@ -1,6 +1,7 @@
 // webpack.config.js
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (_env, argv) => {
   const isProd = argv.mode === 'production';
@@ -69,6 +70,13 @@ module.exports = (_env, argv) => {
         filename: 'assets/css/[name].[contenthash:8].css',
         chunkFilename: 'assets/css/[name].[contenthash:8].chunk.css',
       }),
+      new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, './public/index.html'), // template도 꼭 작성해야 함!!
+      }),
     ],
+    output: {
+      path: path.resolve(__dirname, 'docs'), // 깃허브 페이지 배포를 위해 docs로 설정해주었다.
+      filename: 'app.js',
+    },
   };
 };
