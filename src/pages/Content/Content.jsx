@@ -2,33 +2,52 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './Content.scss';
 
-// md 파일 불러오기
-import ReactNoteMD2211 from '../../../public/data/ERROR/React-Note/react_error_22-11.mdx';
-import GitNoteMD2211 from '../../../public/data/ERROR/Git-Note/git_error_22-11.mdx';
+export default function Content() {
+  const [errorData, setErrorData] = useState([]);
 
-export default function Main() {
-  const [currentCategory, setCurrentCategory] = useState('');
   const { category } = useParams();
 
   useEffect(() => {
-    setCurrentCategory(category);
+    fetch(`/data/ErrorList/${category}.json`, {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(data => {
+        setErrorData(data);
+      });
   }, [category]);
 
-  if (currentCategory === '') return null;
+  const categoryTitleArray = category.split('-');
+  categoryTitleArray[0] = categoryTitleArray[0].toUpperCase();
+  const [categoryName, year, month] = categoryTitleArray;
 
-  if (currentCategory === 'react-2022-11') {
-    return (
-      <section className="main">
-        <ReactNoteMD2211 />
-      </section>
-    );
-  }
+  // for (let i = 0; i < errorData.length; i++) {
+  //   const { id, date, problem_title, link } = errorData[i];
+  //   console.log(id, date, problem_title, link);
+  // }
 
-  if (currentCategory === 'git-2022-11') {
-    return (
-      <section className="main">
-        <GitNoteMD2211 />
-      </section>
-    );
-  }
+  if (errorData === []) return null;
+
+  return (
+    <section className="content">
+      <div className="content-title">
+        <h2 id="content-title">{`${categoryName} - ${year}년 ${month}월`}</h2>
+      </div>
+      <div className="content-list">
+        <ul>
+          {errorData.map(item => {
+            const { id, date, problem_title, link } = item;
+            return (
+              <li>
+                <h2>
+                  {id}.{date}
+                </h2>
+                <a href={link}>{problem_title}</a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+  );
 }
