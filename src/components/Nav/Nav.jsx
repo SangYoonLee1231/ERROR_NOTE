@@ -21,7 +21,7 @@ export default function Nav() {
         </span>
       </div>
       <div className="nav-child nav__title">
-        <Link to="/">
+        <Link to="/ERROR_NOTE/">
           <span className="nav__title">ERROR NOTE</span>
         </Link>
       </div>
