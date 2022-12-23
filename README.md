@@ -2,8 +2,6 @@
 
 # 🚨📒 ERROR NOTE
 
-</div>
-
 <img src="https://img.shields.io/badge/since-2022.11-grey"></a>
 <img src="https://img.shields.io/badge/author-SangYoonLee-yellow"></a>
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSangYoonLee1231%2FERROR_NOTE&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
@@ -18,7 +16,7 @@
 
 <div align="center">
 
-<a href="https://sangyoonlee1231.github.io/ERROR_NOTE/"><h2>👉 ERROR NOTE 바로 가기 👈</h2></a>
+<a href="https://sangyoonlee1231.github.io/ERROR_NOTE/"><h3>👉 ERROR NOTE 바로 가기 👈</h2></a>
 
 </div>
 
