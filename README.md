@@ -2,11 +2,11 @@
 
 # 🚨📒 ERROR NOTE
 
-<img src="https://img.shields.io/badge/since-2022.11-grey"></a>
+<!-- <img src="https://img.shields.io/badge/since-2022.11-grey"></a>
 <img src="https://img.shields.io/badge/author-SangYoonLee-yellow"></a>
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSangYoonLee1231%2FERROR_NOTE&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-</div>
+</div> -->
 
 - 개발 중 <strong>마주했던 에러들을 어떻게 해결했는지</strong> 간단히 기록하는 공간입니다.
 
@@ -16,15 +16,13 @@
 
 <div align="center">
 
-# 📋 Category
-
-## <a href="https://github.com/SangYoonLee1231/ERROR_NOTE/blob/main/public/data/ERROR/React-Note/react_error.md">React</a> &nbsp;&nbsp; <a href="https://github.com/SangYoonLee1231/ERROR_NOTE/blob/main/public/data/ERROR/Git-Note/git_error.md">Git</a>
+<a href="https://github.com/SangYoonLee1231/ERROR_NOTE/blob/main/public/index.html">ERROR NOTE 바로 가기</a>
 
 </div>
 
 <br/><br/>
 
-## 💡 공통적인 해결 방법
+## 💡 공통적인 에러 해결 방법
 
 - 도저히 알 수 없는 에러가 발생했을 때 아래의 시도를 통해 해결한 적이 여럿 있었다.
 
