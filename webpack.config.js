@@ -77,6 +77,7 @@ module.exports = (_env, argv) => {
     output: {
       path: path.resolve(__dirname, 'docs'), // 깃허브 페이지 배포를 위해 docs로 설정해주었다.
       filename: 'app.js',
+      publicPath: '/',
     },
   };
 };

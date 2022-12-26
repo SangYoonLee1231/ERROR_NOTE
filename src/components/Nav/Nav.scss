@@ -1,15 +1,16 @@
-@import './../../styles/common.scss';
-@import './../../styles/reset.scss';
+@import './../../styles/common';
+@import './../../styles/reset';
 
 .nav {
   @include flex(row, space-between, center);
   position: fixed;
   top: 0px;
   left: 0px;
-  height: 5rem;
   width: 100%;
-  border-bottom: 0.5px solid #dbdbdb;
+  height: 5rem;
   padding: 0px 30px;
+  border-bottom: 0.5px solid #dbdbdb;
+  background-color: #50505e;
 
   &-child {
     width: 33%;
@@ -17,19 +18,19 @@
 
   &__links {
     @include flex(row, flex-start, center);
+    color: white;
     font-size: larger;
-    color: #2c3d4f;
 
     a:visited {
-      color: #2c3d4f;
+      color: white;
     }
   }
 
   &__title {
     @include flex(row, center, center);
+    color: white;
     font-size: x-large;
     font-weight: 800;
-    color: #2c3d4f;
   }
 
   &__search-icon {
