@@ -6,4 +6,5 @@ import './styles/reset.scss';
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<Router />);
-ReactDOM.render(<Router />, document.getElementById('root'));
+// ReactDOM.render(<Router />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
